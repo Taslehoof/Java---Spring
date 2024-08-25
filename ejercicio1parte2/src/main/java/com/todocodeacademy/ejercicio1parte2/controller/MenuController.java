@@ -9,9 +9,18 @@ import java.util.List;
 @RestController
 public class MenuController {
 
-    @GetMapping("/menu/{opcion}")
+    /*Ejercicio Nº 1 – Restaurante
+    Un restaurante posee un total de 5 platos en su menú. Cada uno de ellos tiene un número de
+    plato, nombre, precio y breve descripción.
+
+    a. El restaurante desea una aplicación que permita que los clientes sean capaces consultar los datos
+    de los platos del menú a partir de proporcionar el número de plato.
+    Para ello, se necesita el desarrollo de una API que a partir de la recepción del num de plato en
+    una solicitud GET, devuelva el plato correspondiente con todos sus datos.*/
+
+    @GetMapping("/menu/{id}")
     @ResponseBody
-    public List<Menu> menuCliente(@PathVariable int id){
+    public Menu menuCliente(@PathVariable int id){
 
         List<Menu> listaMenu =  new ArrayList<Menu>();
         listaMenu.add( new Menu(1, "Ravioles con tuco", 2.50 ,"ravioles de ricota con salsa bologñesa"));
@@ -20,6 +29,15 @@ public class MenuController {
         listaMenu.add( new Menu(4, "Hamburgesa completa", 1.50 ,"Hamburgesa de carne completa con Huevo"));
         listaMenu.add( new Menu(5, "Pizza", 5.50 ,"Grande de muzzarella"));
 
-        return listaMenu;
+        //Recorro el listado del Menu
+        for (Menu menus : listaMenu){
+            //Si coincide el ID del menu con el que paso lo devueldo por la API
+            if (menus.getId() == id) {
+                return menus;
+            }
+        }
+
+        //En caso de que no lo encuentre no lo imprimo
+        return null;
     }
 }

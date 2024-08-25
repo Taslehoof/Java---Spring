@@ -3,6 +3,9 @@ package com.todocodeacademy.ejercicio1parte2;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter @Setter
 public class Menu {
 
@@ -11,8 +14,7 @@ public class Menu {
     private double precio;
     private String descripcion;
 
-    public Menu() {
-    }
+    public Menu(){}
 
     public Menu(int id, String nombre, double precio, String descripcion) {
         this.id = id;
