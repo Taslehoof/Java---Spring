@@ -17,6 +17,7 @@ public class PropiedadDTO implements Serializable {
 
     public PropiedadDTO() {
     }
+    
 
     public PropiedadDTO(Long id_propiedad, String tipo, String direccion, Double valor_alquiler, String nombre_inquilino, String apellido_inquilino) {
         this.id_propiedad = id_propiedad;
