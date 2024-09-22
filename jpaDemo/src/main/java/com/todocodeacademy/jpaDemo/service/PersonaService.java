@@ -48,4 +48,9 @@ public class PersonaService implements IPersonaService {
 
         this.savePersonas(perso);
     }
+
+    @Override
+    public void editPersona(Persona per) {
+        this.savePersonas(per);
+    }
 }
